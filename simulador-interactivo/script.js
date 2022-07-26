@@ -1,3 +1,4 @@
+console.log(1)
 const preciosActividades = {
   'escalada': 200,
   "esquí": 150,
@@ -6,6 +7,8 @@ const preciosActividades = {
   'montañismo': 250,
   'cabalgata': 50
 };
+
+console.log(preciosActividades['escalada']);
 const opcionesActividades = Object.keys(preciosActividades);
 const opcionesDias = range(1, 10);
 const opcionesPersonas = range(1,5);
@@ -26,8 +29,9 @@ let validar = function(opciones, opcion){
     var continuar = Boolean(false);
     console.log(continuar);
     while(continuar==false){
+        // Incluir el caso de que sea string, pasar a lower, para que no sea sensitivo a la mayúscula 
         if(!opciones.includes(opcion)){
-            opcion = prompt('No ofrecemos esa opción. Por favor ingrese una de las siguientes: ' + opciones)
+            opcion = prompt('No ofrecemos esa opción. Por favor ingrese una de las siguientes: ' + opciones.join(', '))
         } else {
             continuar = true;
         }
@@ -62,7 +66,7 @@ while(nombre===""){
 alert(nombre + ' estás lista/o para una aventura? Respondé las siguientes preguntas y calcularemos el costo de su viaje.')
 
 // Preguntas
-let actividad = prompt('Elija entre una de las siguientes actividades: ' + opcionesActividades)
+let actividad = prompt('Elija entre una de las siguientes actividades: ' + opcionesActividades.join(', '))
 actividad = validar(opcionesActividades, actividad)
 let dias = prompt('Cuántos días desea vivir en la montaña? Ingrese un número entre ' + opcionesDias[0] + 'y' + opcionesDias[opcionesDias.length - 1])
 dias = validar(opcionesDias, dias)
